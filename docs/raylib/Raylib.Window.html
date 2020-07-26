@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Raylib.Window &ndash; raylib &ndash; Vala Binding Reference</title>
+    <link href="../style.css" rel="stylesheet" type="text/css"/><script src="../scripts.js" type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <div class="site_header">Raylib.Window &ndash; raylib Reference Manual</div>
+    <div class="site_body">
+      <div class="site_navigation">
+        <ul class="navi_main">
+          <li class="package_index"><a href="../index.html">Packages</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="package"><a href="index.htm">raylib</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace"><a href="Raylib.html">Raylib</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="class">Window</li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="static_method"><a href="Raylib.Window.close.html">close</a></li>
+          <li class="static_method"><a href="Raylib.Window.get_position.html">get_position</a></li>
+          <li class="static_method"><a href="Raylib.Window.hide.html">hide</a></li>
+          <li class="static_method"><a href="Raylib.Window.init.html">init</a></li>
+          <li class="static_method"><a href="Raylib.Window.is_fullscreen.html">is_fullscreen</a></li>
+          <li class="static_method"><a href="Raylib.Window.is_hidden.html">is_hidden</a></li>
+          <li class="static_method"><a href="Raylib.Window.is_minimized.html">is_minimized</a></li>
+          <li class="static_method"><a href="Raylib.Window.is_ready.html">is_ready</a></li>
+          <li class="static_method"><a href="Raylib.Window.is_resized.html">is_resized</a></li>
+          <li class="static_method"><a href="Raylib.Window.set_min_size.html">set_min_size</a></li>
+          <li class="static_method"><a href="Raylib.Window.set_monitor.html">set_monitor</a></li>
+          <li class="static_method"><a href="Raylib.Window.set_position.html">set_position</a></li>
+          <li class="static_method"><a href="Raylib.Window.set_size.html">set_size</a></li>
+          <li class="static_method"><a href="Raylib.Window.set_title.html">set_title</a></li>
+          <li class="static_method"><a href="Raylib.Window.should_close.html">should_close</a></li>
+          <li class="static_method"><a href="Raylib.Window.toggle_fullscreen.html">toggle_fullscreen</a></li>
+          <li class="static_method"><a href="Raylib.Window.unhide.html">unhide</a></li>
+        </ul>
+      </div>
+      <div class="site_content">
+        <h1 class="main_title">Window</h1>
+        <hr class="main_hr"/>
+        <h2 class="main_title">Object Hierarchy:</h2>
+        <img class="main_diagram" usemap="#Raylib.Window" alt="Object hierarchy for Window" src="img/Raylib.Window.png"/>
+
+      <map id="Raylib.Window" name="Raylib.Window">
+<area shape="rect" id="node1" href="Raylib.Window.html" title="Raylib.Window" alt="" coords="5,5,148,53"/>
+</map>
+
+        <h2 class="main_title">Description:</h2>
+        <div class="main_code_definition">[ <span class="main_type">Compact</span> ]<br/><span class="main_keyword">public</span> <span class="main_keyword">class</span> <b><span class="class">Window</span></b>
+        </div>
+        <div class="description">
+          <p>Window object encapsulating static window related functions</p>
+          <p>Unless I'm mistaken, only a single Raylib window can exist at once. For this reason (I presume) the C API does not expose a struct or 
+            handle to the current Window apart from with one method.</p>
+          <p>Because of this it really feels like we should implement a Window class but the best I can come up with is static methods to group the 
+            functionality together. There may be a better way?</p>
+        </div><br/>
+        <div class="namespace_note"><b>Namespace:</b> <a href="Raylib.html">Raylib</a>
+        </div>
+        <div class="package_note"><b>Package:</b> <a href="index.htm">raylib</a>
+        </div>
+        <h2 class="main_title">Content:</h2>
+        <h3 class="main_title">Static methods:</h3>
+        <ul class="navi_inline">
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_keyword">void</span> <b><a href="Raylib.Window.close.html" class="static_method">close</a></b> ()
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Close window and unload OpenGL context</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_type"><a href="Raylib.Vector2.html" class="struct">Vector2</a></span> <b><a href="Raylib.Window.get_position.html" class="static_method">get_position</a></b> ()
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Get window position XY on monitor</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_keyword">void</span> <b><a href="Raylib.Window.hide.html" class="static_method">hide</a></b> ()
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Hide the window</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_keyword">void</span> <b><a href="Raylib.Window.init.html" class="static_method">init</a></b> (<span class="main_basic_type"><span class="struct">int</span></span> width, <span class="main_basic_type"><span class="struct">int</span></span> height, <span class="main_basic_type"><span class="class">string</span></span> title)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Initialize window and OpenGL context</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_basic_type"><span class="struct">bool</span></span> <b><a href="Raylib.Window.is_fullscreen.html" class="static_method">is_fullscreen</a></b> ()
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Check if window is currently fullscreen</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_basic_type"><span class="struct">bool</span></span> <b><a href="Raylib.Window.is_hidden.html" class="static_method">is_hidden</a></b> ()
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Check if window is currently hidden</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_basic_type"><span class="struct">bool</span></span> <b><a href="Raylib.Window.is_minimized.html" class="static_method">is_minimized</a></b> ()
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Check if window has been minimized (or lost focus)</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_basic_type"><span class="struct">bool</span></span> <b><a href="Raylib.Window.is_ready.html" class="static_method">is_ready</a></b> ()
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Check if window has been initialized successfully</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_basic_type"><span class="struct">bool</span></span> <b><a href="Raylib.Window.is_resized.html" class="static_method">is_resized</a></b> ()
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Check if window has been resized</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_keyword">void</span> <b><a href="Raylib.Window.set_min_size.html" class="static_method">set_min_size</a></b> (<span class="main_basic_type"><span class="struct">int</span></span> width, <span class="main_basic_type"><span class="struct">int</span></span> height)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Set window minimum dimensions (for FLAG_WINDOW_RESIZABLE)</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_keyword">void</span> <b><a href="Raylib.Window.set_monitor.html" class="static_method">set_monitor</a></b> (<span class="main_basic_type"><span class="struct">int</span></span> monitor)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Set monitor for the current window (fullscreen mode)</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_keyword">void</span> <b><a href="Raylib.Window.set_position.html" class="static_method">set_position</a></b> (<span class="main_basic_type"><span class="struct">int</span></span> x, <span class="main_basic_type"><span class="struct">int</span></span> y)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Set window position on screen (only PLATFORM_DESKTOP)</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_keyword">void</span> <b><a href="Raylib.Window.set_size.html" class="static_method">set_size</a></b> (<span class="main_basic_type"><span class="struct">int</span></span> width, <span class="main_basic_type"><span class="struct">int</span></span> height)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Set window dimensions</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_keyword">void</span> <b><a href="Raylib.Window.set_title.html" class="static_method">set_title</a></b> (<span class="main_basic_type"><span class="class">string</span></span> title)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Set title for window (only PLATFORM_DESKTOP)</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_basic_type"><span class="struct">bool</span></span> <b><a href="Raylib.Window.should_close.html" class="static_method">should_close</a></b> ()
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Check if KEY_ESCAPE pressed or Close icon pressed</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_keyword">void</span> <b><a href="Raylib.Window.toggle_fullscreen.html" class="static_method">toggle_fullscreen</a></b> ()
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Toggle fullscreen mode (only PLATFORM_DESKTOP)</span>
+            </div></li>
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_keyword">void</span> <b><a href="Raylib.Window.unhide.html" class="static_method">unhide</a></b> ()
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Show the window</span>
+            </div></li>
+        </ul>
+      </div>
+    </div><br/>
+    <div class="site_footer">Generated by <a href="https://wiki.gnome.org/Projects/Valadoc"><kbd>valadoc</kbd></a>
+    </div>
+  </body>
+</html>
