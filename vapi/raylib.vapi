@@ -141,16 +141,6 @@ namespace Raylib {
         float height;
     }
 
-    //  // Image type, bpp always RGBA (32bit)
-    //  // NOTE: Data stored in CPU memory (RAM)
-    //  typedef struct Image {
-    //      void *data;             // Image raw data
-    //      int width;              // Image base width
-    //      int height;             // Image base height
-    //      int mipmaps;            // Mipmap levels, 1 by default
-    //      int format;             // Data format (PixelFormat type)
-    //  } Image;
-
     //  // Texture2D type
     //  // NOTE: Data stored in GPU memory
     //  typedef struct Texture2D {
@@ -1374,6 +1364,22 @@ namespace Raylib {
     //------------------------------------------------------------------------------------
     // Texture Loading and Drawing Functions (Module: textures)
     //------------------------------------------------------------------------------------
+
+    // Probable class here...
+    public class Image {
+
+    }
+
+    //  // Image type, bpp always RGBA (32bit)
+    //  // NOTE: Data stored in CPU memory (RAM)
+    //  typedef struct Image {
+    //      void *data;             // Image raw data
+    //      int width;              // Image base width
+    //      int height;             // Image base height
+    //      int mipmaps;            // Mipmap levels, 1 by default
+    //      int format;             // Data format (PixelFormat type)
+    //  } Image;
+
 
     // Image loading functions
     // NOTE: This functions do not require GPU access
