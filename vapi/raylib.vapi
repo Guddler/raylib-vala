@@ -141,22 +141,6 @@ namespace Raylib {
         float height;
     }
 
-    //  // Texture2D type
-    //  // NOTE: Data stored in GPU memory
-    //  typedef struct Texture2D {
-    //      unsigned int id;        // OpenGL texture id
-    //      int width;              // Texture base width
-    //      int height;             // Texture base height
-    //      int mipmaps;            // Mipmap levels, 1 by default
-    //      int format;             // Data format (PixelFormat type)
-    //  } Texture2D;
-
-    //  // Texture type, same as Texture2D
-    //  typedef Texture2D Texture;
-
-    //  // TextureCubemap type, actually, same as Texture2D
-    //  typedef Texture2D TextureCubemap;
-
     //  // RenderTexture2D type, for texture rendering
     //  typedef struct RenderTexture2D {
     //      unsigned int id;        // OpenGL Framebuffer Object (FBO) id
@@ -388,21 +372,21 @@ namespace Raylib {
     [Flags]
     [CCode (cprefix = "", has_type_id = false)]
     public enum ConfigFlag {
-        FLAG_RESERVED           , //= 1,    // Reserved
-        FLAG_FULLSCREEN_MODE    , //= 2,    // Set to run program in fullscreen
-        FLAG_WINDOW_RESIZABLE   , //= 4,    // Set to allow resizable window
-        FLAG_WINDOW_UNDECORATED , //= 8,    // Set to disable window decoration (frame and buttons)
-        FLAG_WINDOW_TRANSPARENT , //= 16,   // Set to allow transparent window
-        FLAG_MSAA_4X_HINT       , //= 32,   // Set to try enabling MSAA 4X
-        FLAG_VSYNC_HINT         , //= 64,   // Set to try enabling V-Sync on GPU
-        FLAG_WINDOW_HIDDEN      , //= 128,  // Set to create the window initially hidden
-        FLAG_WINDOW_ALWAYS_RUN   //= 256   // Set to allow windows running while minimized
+        FLAG_RESERVED,                      // Reserved
+        FLAG_FULLSCREEN_MODE,               // Set to run program in fullscreen
+        FLAG_WINDOW_RESIZABLE,              // Set to allow resizable window
+        FLAG_WINDOW_UNDECORATED,            // Set to disable window decoration (frame and buttons)
+        FLAG_WINDOW_TRANSPARENT,            // Set to allow transparent window
+        FLAG_MSAA_4X_HINT,                  // Set to try enabling MSAA 4X
+        FLAG_VSYNC_HINT,                    // Set to try enabling V-Sync on GPU
+        FLAG_WINDOW_HIDDEN,                 // Set to create the window initially hidden
+        FLAG_WINDOW_ALWAYS_RUN              // Set to allow windows running while minimized
     }
     
     // Trace log type
     [CCode (cprefix = "", has_type_id = false)]
     public enum TraceLogType {
-        LOG_ALL, // = 0,        // Display all logs
+        LOG_ALL,            // Display all logs
         LOG_TRACE,
         LOG_DEBUG,
         LOG_INFO,
@@ -557,7 +541,7 @@ namespace Raylib {
     [CCode (cprefix = "GAMEPAD_BUTTON_", has_type_id = false)] 
     public enum GamepadButton {
         // This is here just for error checking
-        UNKNOWN = 0,
+        UNKNOWN,
         // This is normally a DPAD
         LEFT_FACE_UP,
         LEFT_FACE_RIGHT,
@@ -588,7 +572,7 @@ namespace Raylib {
     [CCode (cprefix = "", has_type_id = false)] 
     public enum GamepadAxis {
         // This is here just for error checking
-        GAMEPAD_AXIS_UNKNOWN = 0,
+        GAMEPAD_AXIS_UNKNOWN,
         // Left stick
         GAMEPAD_AXIS_LEFT_X,
         GAMEPAD_AXIS_LEFT_Y,
@@ -601,66 +585,66 @@ namespace Raylib {
     }
 
     // Shader location point type
-    [CCode (cprefix = "", has_type_id = false)] 
+    [CCode (cprefix = "LOC_", has_type_id = false)] 
     public enum ShaderLocationIndex {
-        LOC_VERTEX_POSITION = 0,
-        LOC_VERTEX_TEXCOORD01,
-        LOC_VERTEX_TEXCOORD02,
-        LOC_VERTEX_NORMAL,
-        LOC_VERTEX_TANGENT,
-        LOC_VERTEX_COLOR,
-        LOC_MATRIX_MVP,
-        LOC_MATRIX_MODEL,
-        LOC_MATRIX_VIEW,
-        LOC_MATRIX_PROJECTION,
-        LOC_VECTOR_VIEW,
-        LOC_COLOR_DIFFUSE,
-        LOC_COLOR_SPECULAR,
-        LOC_COLOR_AMBIENT,
-        LOC_MAP_ALBEDO,          // LOC_MAP_DIFFUSE
-        LOC_MAP_METALNESS,       // LOC_MAP_SPECULAR
-        LOC_MAP_NORMAL,
-        LOC_MAP_ROUGHNESS,
-        LOC_MAP_OCCLUSION,
-        LOC_MAP_EMISSION,
-        LOC_MAP_HEIGHT,
-        LOC_MAP_CUBEMAP,
-        LOC_MAP_IRRADIANCE,
-        LOC_MAP_PREFILTER,
-        LOC_MAP_BRDF
+        VERTEX_POSITION,
+        VERTEX_TEXCOORD01,
+        VERTEX_TEXCOORD02,
+        VERTEX_NORMAL,
+        VERTEX_TANGENT,
+        VERTEX_COLOR,
+        MATRIX_MVP,
+        MATRIX_MODEL,
+        MATRIX_VIEW,
+        MATRIX_PROJECTION,
+        VECTOR_VIEW,
+        COLOR_DIFFUSE,
+        COLOR_SPECULAR,
+        COLOR_AMBIENT,
+        MAP_ALBEDO,          // LOC_MAP_DIFFUSE
+        MAP_METALNESS,       // LOC_MAP_SPECULAR
+        MAP_NORMAL,
+        MAP_ROUGHNESS,
+        MAP_OCCLUSION,
+        MAP_EMISSION,
+        MAP_HEIGHT,
+        MAP_CUBEMAP,
+        MAP_IRRADIANCE,
+        MAP_PREFILTER,
+        MAP_BRDF
     }
 
     // #define LOC_MAP_DIFFUSE      LOC_MAP_ALBEDO
     // #define LOC_MAP_SPECULAR     LOC_MAP_METALNESS
  
     // Shader uniform data types
-    [CCode (cprefix = "", has_type_id = false)] 
+    [CCode (cprefix = "UNIFORM_", has_type_id = false)] 
     public enum ShaderUniformDataType {
-        UNIFORM_FLOAT = 0,
-        UNIFORM_VEC2,
-        UNIFORM_VEC3,
-        UNIFORM_VEC4,
-        UNIFORM_INT,
-        UNIFORM_IVEC2,
-        UNIFORM_IVEC3,
-        UNIFORM_IVEC4,
-        UNIFORM_SAMPLER2D
+        FLOAT,
+        VEC2,
+        VEC3,
+        VEC4,
+        INT,
+        IVEC2,
+        IVEC3,
+        IVEC4,
+        SAMPLER2D
     }
 
     // Material map type
-    [CCode (cprefix = "", has_type_id = false)] 
+    [CCode (cprefix = "MAP_", has_type_id = false)] 
     public enum MaterialMapType {
-        MAP_ALBEDO    = 0,       // MAP_DIFFUSE
-        MAP_METALNESS = 1,       // MAP_SPECULAR
-        MAP_NORMAL    = 2,
-        MAP_ROUGHNESS = 3,
-        MAP_OCCLUSION,
-        MAP_EMISSION,
-        MAP_HEIGHT,
-        MAP_CUBEMAP,             // NOTE: Uses GL_TEXTURE_CUBE_MAP
-        MAP_IRRADIANCE,          // NOTE: Uses GL_TEXTURE_CUBE_MAP
-        MAP_PREFILTER,           // NOTE: Uses GL_TEXTURE_CUBE_MAP
-        MAP_BRDF
+        ALBEDO,                 // MAP_DIFFUSE
+        METALNESS,              // MAP_SPECULAR
+        NORMAL,
+        ROUGHNESS,
+        OCCLUSION,
+        EMISSION,
+        HEIGHT,
+        CUBEMAP,                // NOTE: Uses GL_TEXTURE_CUBE_MAP
+        IRRADIANCE,             // NOTE: Uses GL_TEXTURE_CUBE_MAP
+        PREFILTER,              // NOTE: Uses GL_TEXTURE_CUBE_MAP
+        BRDF
     }
     
     // #define MAP_DIFFUSE      MAP_ALBEDO
@@ -670,7 +654,7 @@ namespace Raylib {
     // NOTE: Support depends on OpenGL version and platform
     [CCode (cprefix = "", has_type_id = false)] 
     public enum PixelFormat {
-        UNCOMPRESSED_GRAYSCALE = 1,     // 8 bit per pixel (no alpha)
+        UNCOMPRESSED_GRAYSCALE,         // 8 bit per pixel (no alpha)
         UNCOMPRESSED_GRAY_ALPHA,        // 8*2 bpp (2 channels)
         UNCOMPRESSED_R5G6B5,            // 16 bpp
         UNCOMPRESSED_R8G8B8,            // 24 bpp
@@ -696,91 +680,91 @@ namespace Raylib {
     // Texture parameters: filter mode
     // NOTE 1: Filtering considers mipmaps if available in the texture
     // NOTE 2: Filter is accordingly set for minification and magnification
-    [CCode (cprefix = "", has_type_id = false)] 
+    [CCode (cprefix = "FILTER_", has_type_id = false)] 
     public enum TextureFilterMode {
-	    FILTER_POINT = 0,               // No filter, just pixel aproximation
-	    FILTER_BILINEAR,                // Linear filtering
-	    FILTER_TRILINEAR,               // Trilinear filtering (linear with mipmaps)
-	    FILTER_ANISOTROPIC_4X,          // Anisotropic filtering 4x
-	    FILTER_ANISOTROPIC_8X,          // Anisotropic filtering 8x
-        FILTER_ANISOTROPIC_16X,         // Anisotropic filtering 16x
+	    POINT,                   // No filter, just pixel aproximation
+	    BILINEAR,                // Linear filtering
+	    TRILINEAR,               // Trilinear filtering (linear with mipmaps)
+	    ANISOTROPIC_4X,          // Anisotropic filtering 4x
+	    ANISOTROPIC_8X,          // Anisotropic filtering 8x
+        ANISOTROPIC_16X,         // Anisotropic filtering 16x
     }
 
     // Cubemap layout type    
-    [CCode (cprefix = "", has_type_id = false)] 
+    [CCode (cprefix = "CUBEMAP_", has_type_id = false)] 
     public enum CubemapLayoutType {
-	    CUBEMAP_AUTO_DETECT = 0,        // Automatically detect layout type
-	    CUBEMAP_LINE_VERTICAL,          // Layout is defined by a vertical line with faces
-	    CUBEMAP_LINE_HORIZONTAL,        // Layout is defined by an horizontal line with faces
-		CUBEMAP_CROSS_THREE_BY_FOUR,    // Layout is defined by a 3x4 cross with cubemap faces
-		CUBEMAP_CROSS_FOUR_BY_THREE,    // Layout is defined by a 4x3 cross with cubemap faces
-		CUBEMAP_PANORAMA                // Layout is defined by a panorama image (equirectangular map)
+	    AUTO_DETECT,            // Automatically detect layout type
+	    LINE_VERTICAL,          // Layout is defined by a vertical line with faces
+	    LINE_HORIZONTAL,        // Layout is defined by an horizontal line with faces
+		CROSS_THREE_BY_FOUR,    // Layout is defined by a 3x4 cross with cubemap faces
+		CROSS_FOUR_BY_THREE,    // Layout is defined by a 4x3 cross with cubemap faces
+		PANORAMA                // Layout is defined by a panorama image (equirectangular map)
 	}
 
     // Texture parameters: wrap mode
-    [CCode (cprefix = "", has_type_id = false)] 
+    [CCode (cprefix = "WRAP_", has_type_id = false)] 
 	public enum TextureWrapMode {
-		WRAP_REPEAT = 0,        // Repeats texture in tiled mode
-		WRAP_CLAMP,             // Clamps texture to edge pixel in tiled mode
-		WRAP_MIRROR_REPEAT,     // Mirrors and repeats the texture in tiled mode
-		WRAP_MIRROR_CLAMP       // Mirrors and clamps to border the texture in tiled mode
+		REPEAT,             // Repeats texture in tiled mode
+		CLAMP,              // Clamps texture to edge pixel in tiled mode
+		MIRROR_REPEAT,      // Mirrors and repeats the texture in tiled mode
+		MIRROR_CLAMP        // Mirrors and clamps to border the texture in tiled mode
 	}
 
 	// Font type, defines generation method
-    [CCode (cprefix = "", has_type_id = false)] 
+    [CCode (cprefix = "FONT_", has_type_id = false)] 
     public enum FontType {
-		FONT_DEFAULT = 0,       // Default font generation, anti-aliased
-		FONT_BITMAP,            // Bitmap font generation, no anti-aliasing
-		FONT_SDF                // SDF font generation, requires external shader
-    }
-
+		DEFAULT,            // Default font generation, anti-aliased
+		BITMAP,             // Bitmap font generation, no anti-aliasing
+		SDF                 // SDF font generation, requires external shader
+    } 
+    
     // Color blending modes (pre-defined)
-    [CCode (cprefix = "", has_type_id = false)] 
+    [CCode (cprefix = "BLEND_", has_type_id = false)] 
     public enum BlendMode {
-    	BLEND_ALPHA = 0,        // Blend textures considering alpha (default)
-    	BLEND_ADDITIVE,         // Blend textures adding colors
-    	BLEND_MULTIPLIED        // Blend textures multiplying colors
+    	ALPHA,              // Blend textures considering alpha (default)
+    	ADDITIVE,           // Blend textures adding colors
+    	MULTIPLIED          // Blend textures multiplying colors
     }
 
     // Gestures type
     // NOTE: It could be used as flags to enable only some gestures
     [Flags]
-    [CCode (cprefix = "", has_type_id = false)] 
+    [CCode (cprefix = "GESTURE_", has_type_id = false)] 
     public enum GestureType {
-    	GESTURE_NONE        = 0,
-		GESTURE_TAP         = 1,
-		GESTURE_DOUBLETAP   = 2,
-		GESTURE_HOLD        = 4,
-		GESTURE_DRAG        = 8,
-		GESTURE_SWIPE_RIGHT = 16,
-		GESTURE_SWIPE_LEFT  = 32,
-		GESTURE_SWIPE_UP    = 64,
-		GESTURE_SWIPE_DOWN  = 128,
-		GESTURE_PINCH_IN    = 256,
-		GESTURE_PINCH_OUT   = 512
+    	NONE,
+		TAP,
+		DOUBLETAP,
+		HOLD,
+		DRAG,
+        SWIPE_RIGHT,
+        SWIPE_LEFT,
+		SWIPE_UP,
+		SWIPE_DOWN,
+		PINCH_IN,
+		PINCH_OUT  
     }
 
     // Camera system modes
-    [CCode (cprefix = "", has_type_id = false)] 
+    [CCode (cprefix = "CAMERA_", has_type_id = false)] 
     public enum CameraMode {
-    	CAMERA_CUSTOM = 0,
-    	CAMERA_FREE,
-    	CAMERA_ORBITAL,
-    	CAMERA_FIRST_PERSON,
-    	CAMERA_THIRD_PERSON
+    	CUSTOM,
+    	FREE,
+    	ORBITAL,
+    	FIRST_PERSON,
+    	THIRD_PERSON
     }
 
     // Camera projection modes
-    [CCode (cprefix = "", has_type_id = false)] 
+    [CCode (cprefix = "CAMERA_", has_type_id = false)] 
     public enum CameraType {
-        CAMERA_PERSPECTIVE = 0,
-        CAMERA_ORTHOGRAPHIC
+        PERSPECTIVE,
+        ORTHOGRAPHIC
     }
 
     // Type of n-patch
     [CCode (cprefix = "", has_type_id = false)] 
     public enum NPatchType {
-    	NPT_9PATCH = 0,         // Npatch defined by 3x3 tiles
+    	NPT_9PATCH,             // Npatch defined by 3x3 tiles
         NPT_3PATCH_VERTICAL,    // Npatch defined by 1x3 tiles
         NPT_3PATCH_HORIZONTAL   // Npatch defined by 3x1 tiles
     }
@@ -1365,21 +1349,57 @@ namespace Raylib {
     // Texture Loading and Drawing Functions (Module: textures)
     //------------------------------------------------------------------------------------
 
-    // Probable class here...
-    public class Image {
-
+    // Texture2D type
+    // NOTE: Data stored in GPU memory
+    [SimpleType]
+    [CCode (cname = "Texture2D")]
+    public struct Texture2D {
+        uint id;                // OpenGL texture id
+        int width;              // Texture base width
+        int height;             // Texture base height
+        int mipmaps;            // Mipmap levels, 1 by default
+        int format;             // Data format (PixelFormat type)
     }
 
-    //  // Image type, bpp always RGBA (32bit)
-    //  // NOTE: Data stored in CPU memory (RAM)
-    //  typedef struct Image {
-    //      void *data;             // Image raw data
-    //      int width;              // Image base width
-    //      int height;             // Image base height
-    //      int mipmaps;            // Mipmap levels, 1 by default
-    //      int format;             // Data format (PixelFormat type)
-    //  } Image;
+    //  // Texture type, same as Texture2D
+    //  typedef Texture2D Texture;
 
+    //  // TextureCubemap type, actually, same as Texture2D
+    //  typedef Texture2D TextureCubemap;
+
+
+    // Image type, bpp always RGBA (32bit)
+    // NOTE: Data stored in CPU memory (RAM)
+    [SimpleType]
+    [CCode (cname = "Image")]
+    public struct ImageT {
+        void *data;             // Image raw data
+        int width;              // Image base width
+        int height;             // Image base height
+        int mipmaps;            // Mipmap levels, 1 by default
+        int format;             // Data format (PixelFormat type)
+    }
+
+    //[CCode (cname = "struct bar", free_function = "bar_close", has_type_id = false)]
+    //[Compact]
+    //public class Bar {
+    //    [CCode (cname = "bar_open")]
+    //    public static Bar? open (string filename);
+    //}
+
+    // Probable class here...
+    [Compact]
+    [CCode (cname = "struct Image", free_function = "UnloadImage", has_type_id = false)]
+    public class Image {
+        [CCode (cname = "LoadImage")]
+        public Image.from_file(string file_name) { }
+        [CCode (cname = "LoadImageRaw")]
+        public Image.from_file_raw(string file_name, int width, int height, int format, int header_size) { }
+
+        [CCode (cname = "ExportImage")]
+        public void export(string file_name);
+
+    }
 
     // Image loading functions
     // NOTE: This functions do not require GPU access
@@ -1453,7 +1473,8 @@ namespace Raylib {
     // Texture loading functions
     // NOTE: These functions require GPU access
     // Texture2D LoadTexture(const char *fileName);                                                       // Load texture from file into GPU memory (VRAM)
-    // Texture2D LoadTextureFromImage(Image image);                                                       // Load texture from image data
+    [CCode (cname = "LoadTextureFromImage")]
+    public Texture2D load_texture_from_image(ImageT image);                                                       // Load texture from image data
     // TextureCubemap LoadTextureCubemap(Image image, int layoutType);                                    // Load cubemap from image, multiple image cubemap layouts supported
     // RenderTexture2D LoadRenderTexture(int width, int height);                                          // Load texture for rendering (framebuffer)
     // void UnloadTexture(Texture2D texture);                                                             // Unload texture from GPU memory (VRAM)
