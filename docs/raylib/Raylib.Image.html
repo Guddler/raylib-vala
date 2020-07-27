@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Raylib.Image &ndash; raylib &ndash; Vala Binding Reference</title>
+    <link href="../style.css" rel="stylesheet" type="text/css"/><script src="../scripts.js" type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <div class="site_header">Raylib.Image &ndash; raylib Reference Manual</div>
+    <div class="site_body">
+      <div class="site_navigation">
+        <ul class="navi_main">
+          <li class="package_index"><a href="../index.html">Packages</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="package"><a href="index.htm">raylib</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace"><a href="Raylib.html">Raylib</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="struct">Image</li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="static_method"><a href="Raylib.Image.resize.html">resize</a></li>
+          <li class="creation_method"><a href="Raylib.Image.Image.from_color_data.html">Image.from_color_data</a></li>
+          <li class="creation_method"><a href="Raylib.Image.Image.from_data.html">Image.from_data</a></li>
+          <li class="creation_method"><a href="Raylib.Image.Image.from_file.html">Image.from_file</a></li>
+          <li class="creation_method"><a href="Raylib.Image.Image.from_file_raw.html">Image.from_file_raw</a></li>
+          <li class="creation_method"><a href="Raylib.Image.Image.gen_cellular.html">Image.gen_cellular</a></li>
+          <li class="creation_method"><a href="Raylib.Image.Image.gen_checked.html">Image.gen_checked</a></li>
+          <li class="creation_method"><a href="Raylib.Image.Image.gen_color.html">Image.gen_color</a></li>
+          <li class="creation_method"><a href="Raylib.Image.Image.gen_gradient_h.html">Image.gen_gradient_h</a></li>
+          <li class="creation_method"><a href="Raylib.Image.Image.gen_gradient_radial.html">Image.gen_gradient_radial</a></li>
+          <li class="creation_method"><a href="Raylib.Image.Image.gen_gradient_v.html">Image.gen_gradient_v</a></li>
+          <li class="creation_method"><a href="Raylib.Image.Image.gen_perlin_noise.html">Image.gen_perlin_noise</a></li>
+          <li class="creation_method"><a href="Raylib.Image.Image.gen_white_noise.html">Image.gen_white_noise</a></li>
+          <li class="method"><a href="Raylib.Image.copy.html">copy</a></li>
+          <li class="method"><a href="Raylib.Image.export.html">export</a></li>
+          <li class="method"><a href="Raylib.Image.export_as_code.html">export_as_code</a></li>
+          <li class="method"><a href="Raylib.Image.get_data.html">get_data</a></li>
+          <li class="method"><a href="Raylib.Image.get_data_normalized.html">get_data_normalized</a></li>
+          <li class="method"><a href="Raylib.Image.splice.html">splice</a></li>
+          <li class="field"><a href="Raylib.Image.data.html">data</a></li>
+          <li class="field"><a href="Raylib.Image.format.html">format</a></li>
+          <li class="field"><a href="Raylib.Image.height.html">height</a></li>
+          <li class="field"><a href="Raylib.Image.mipmaps.html">mipmaps</a></li>
+          <li class="field"><a href="Raylib.Image.width.html">width</a></li>
+        </ul>
+      </div>
+      <div class="site_content">
+        <h1 class="main_title">Image</h1>
+        <hr class="main_hr"/>
+        <h2 class="main_title">Object Hierarchy:</h2>
+        <img class="main_diagram" usemap="#Raylib.Image" alt="Object hierarchy for Image" src="img/Raylib.Image.png"/>
+
+      <map id="Raylib.Image" name="Raylib.Image">
+<area shape="rect" id="node1" href="Raylib.Image.html" title="Raylib.Image" alt="" coords="5,5,136,53"/>
+</map>
+
+        <h2 class="main_title">Description:</h2>
+        <div class="main_code_definition">[ <span class="main_type">SimpleType</span> ]<br/>[ <span class="main_type">CCode</span> ( cname = <span class="main_literal">"struct Image"</span> ,  free_function = <span class="main_literal">"UnloadImage"</span> ,  has_type_id = <span class="main_literal">false</span> ) ]<br/><span class="main_keyword">public</span> <span class="main_keyword">struct</span> <b><span class="struct">Image</span></b>
+        </div><br/>
+        <div class="namespace_note"><b>Namespace:</b> <a href="Raylib.html">Raylib</a>
+        </div>
+        <div class="package_note"><b>Package:</b> <a href="index.htm">raylib</a>
+        </div>
+        <h2 class="main_title">Content:</h2>
+        <h3 class="main_title">Static methods:</h3>
+        <ul class="navi_inline">
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_keyword">void</span> <b><a href="Raylib.Image.resize.html" class="static_method">resize</a></b> (<span class="main_keyword">ref</span> <span class="main_type"><span class="struct">Image</span></span> image, <span class="main_basic_type"><span class="struct">int</span></span> new_width, <span class="main_basic_type"><span class="struct">int</span></span> new_height)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Resize image (Bicubic scaling algorithm)</span>
+            </div></li>
+        </ul>
+        <h3 class="main_title">Creation methods:</h3>
+        <ul class="navi_inline">
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="Raylib.Image.Image.from_color_data.html" class="creation_method">Image.from_color_data</a></b> (<span class="main_type"><a href="Raylib.Color.html" class="struct">Color</a></span>[] pixels, <span class="main_basic_type"><span class="struct">int</span></span> width, <span class="main_basic_type"><span class="struct">int</span></span> height)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Load image from Color array data (RGBA - 32bit)</span>
+            </div></li>
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="Raylib.Image.Image.from_data.html" class="creation_method">Image.from_data</a></b> (<span class="main_basic_type"><span class="struct">uint8</span></span>[] data, <span class="main_basic_type"><span class="struct">int</span></span> width, <span class="main_basic_type"><span class="struct">int</span></span> height, <span class="main_basic_type"><span class="struct">int</span></span> format)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Load image from raw data with parameters</span>
+            </div></li>
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="Raylib.Image.Image.from_file.html" class="creation_method">Image.from_file</a></b> (<span class="main_basic_type"><span class="class">string</span></span> file_name)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Load image from file into CPU memory (RAM)</span>
+            </div></li>
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="Raylib.Image.Image.from_file_raw.html" class="creation_method">Image.from_file_raw</a></b> (<span class="main_basic_type"><span class="class">string</span></span> file_name, <span class="main_basic_type"><span class="struct">int</span></span> width, <span class="main_basic_type"><span class="struct">int</span></span> height, <span class="main_basic_type"><span class="struct">int</span></span> format, <span class="main_basic_type"><span class="struct">int</span></span> header_size)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Load image from RAW file data</span>
+            </div></li>
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="Raylib.Image.Image.gen_cellular.html" class="creation_method">Image.gen_cellular</a></b> (<span class="main_basic_type"><span class="struct">int</span></span> width, <span class="main_basic_type"><span class="struct">int</span></span> height, <span class="main_basic_type"><span class="struct">int</span></span> tile_size)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Generate image: cellular algorithm. Bigger tileSize means bigger cells
+              </span>
+            </div></li>
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="Raylib.Image.Image.gen_checked.html" class="creation_method">Image.gen_checked</a></b> (<span class="main_basic_type"><span class="struct">int</span></span> width, <span class="main_basic_type"><span class="struct">int</span></span> height, <span class="main_basic_type"><span class="struct">int</span></span> checks_x, <span class="main_basic_type"><span class="struct">int</span></span> checks_y, <span class="main_type"><a href="Raylib.Color.html" class="struct">Color</a></span> col1, <span class="main_type"><a href="Raylib.Color.html" class="struct">Color</a></span> col2)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Generate image: checked</span>
+            </div></li>
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="Raylib.Image.Image.gen_color.html" class="creation_method">Image.gen_color</a></b> (<span class="main_basic_type"><span class="struct">int</span></span> width, <span class="main_basic_type"><span class="struct">int</span></span> height, <span class="main_type"><a href="Raylib.Color.html" class="struct">Color</a></span> color)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Generate image: plain color</span>
+            </div></li>
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="Raylib.Image.Image.gen_gradient_h.html" class="creation_method">Image.gen_gradient_h</a></b> (<span class="main_basic_type"><span class="struct">int</span></span> width, <span class="main_basic_type"><span class="struct">int</span></span> height, <span class="main_type"><a href="Raylib.Color.html" class="struct">Color</a></span> left, <span class="main_type"><a href="Raylib.Color.html" class="struct">Color</a></span> right)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Generate image: horizontal gradient</span>
+            </div></li>
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="Raylib.Image.Image.gen_gradient_radial.html" class="creation_method">Image.gen_gradient_radial</a></b> (<span class="main_basic_type"><span class="struct">int</span></span> width, <span class="main_basic_type"><span class="struct">int</span></span> height, <span class="main_basic_type"><span class="struct">float</span></span> density, <span class="main_type"><a href="Raylib.Color.html" class="struct">Color</a></span> inner, <span class="main_type"><a href="Raylib.Color.html" class="struct">Color</a></span> outer)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Generate image: radial gradient</span>
+            </div></li>
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="Raylib.Image.Image.gen_gradient_v.html" class="creation_method">Image.gen_gradient_v</a></b> (<span class="main_basic_type"><span class="struct">int</span></span> width, <span class="main_basic_type"><span class="struct">int</span></span> height, <span class="main_type"><a href="Raylib.Color.html" class="struct">Color</a></span> top, <span class="main_type"><a href="Raylib.Color.html" class="struct">Color</a></span> bottom)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Generate image: vertical gradient</span>
+            </div></li>
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="Raylib.Image.Image.gen_perlin_noise.html" class="creation_method">Image.gen_perlin_noise</a></b> (<span class="main_basic_type"><span class="struct">int</span></span> width, <span class="main_basic_type"><span class="struct">int</span></span> height, <span class="main_basic_type"><span class="struct">int</span></span> offset_x, <span class="main_basic_type"><span class="struct">int</span></span> offset_y, <span class="main_basic_type"><span class="struct">float</span></span> scale)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Generate image: perlin noise</span>
+            </div></li>
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="Raylib.Image.Image.gen_white_noise.html" class="creation_method">Image.gen_white_noise</a></b> (<span class="main_basic_type"><span class="struct">int</span></span> width, <span class="main_basic_type"><span class="struct">int</span></span> height, <span class="main_basic_type"><span class="struct">float</span></span> factor)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Generate image: white noise</span>
+            </div></li>
+        </ul>
+        <h3 class="main_title">Methods:</h3>
+        <ul class="navi_inline">
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><span class="struct">Image</span></span> <b><a href="Raylib.Image.copy.html" class="method">copy</a></b> ()
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Create an image duplicate (useful for transformations)</span>
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Raylib.Image.export.html" class="method">export</a></b> (<span class="main_basic_type"><span class="class">string</span></span> file_name)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Export image data to file</span>
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Raylib.Image.export_as_code.html" class="method">export_as_code</a></b> (<span class="main_basic_type"><span class="class">string</span></span> file_name)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Export image as code file defining an array of bytes</span>
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="Raylib.Color.html" class="struct">Color</a></span>[] <b><a href="Raylib.Image.get_data.html" class="method">get_data</a></b> ()
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Get pixel data from image as a Color struct array</span>
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="Raylib.Vector4.html" class="struct">Vector4</a></span>[] <b><a href="Raylib.Image.get_data_normalized.html" class="method">get_data_normalized</a></b> ()
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Get pixel data from image as Vector4 array (float normalized)</span>
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><span class="struct">Image</span></span> <b><a href="Raylib.Image.splice.html" class="method">splice</a></b> (<span class="main_type"><a href="Raylib.Rectangle.html" class="struct">Rectangle</a></span> rec)
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Create an image from another image piece</span>
+            </div></li>
+        </ul>
+        <h3 class="main_title">Fields:</h3>
+        <ul class="navi_inline">
+          <li class="field"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span>* <b><a href="Raylib.Image.data.html" class="field">data</a></b>
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="field"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">int</span></span> <b><a href="Raylib.Image.format.html" class="field">format</a></b>
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="field"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">int</span></span> <b><a href="Raylib.Image.height.html" class="field">height</a></b>
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="field"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">int</span></span> <b><a href="Raylib.Image.mipmaps.html" class="field">mipmaps</a></b>
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="field"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">int</span></span> <b><a href="Raylib.Image.width.html" class="field">width</a></b>
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+        </ul>
+      </div>
+    </div><br/>
+    <div class="site_footer">Generated by <a href="https://wiki.gnome.org/Projects/Valadoc"><kbd>valadoc</kbd></a>
+    </div>
+  </body>
+</html>

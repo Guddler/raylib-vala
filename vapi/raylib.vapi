@@ -39,6 +39,7 @@
  *
  * See: [[https://www.raylib.com/index.html]]
  */
+[Version (experimental = true)]
 [CCode (cprefix = "", cheader_filename="raylib.h")]
 namespace Raylib {
     //#include <stdarg.h>     // Required for: va_list - Only used by TraceLogCallback
@@ -1370,62 +1371,163 @@ namespace Raylib {
 
     // Image type, bpp always RGBA (32bit)
     // NOTE: Data stored in CPU memory (RAM)
-    [SimpleType]
-    [CCode (cname = "Image")]
-    public struct ImageT {
-        void *data;             // Image raw data
-        int width;              // Image base width
-        int height;             // Image base height
-        int mipmaps;            // Mipmap levels, 1 by default
-        int format;             // Data format (PixelFormat type)
-    }
-
-    //[CCode (cname = "struct bar", free_function = "bar_close", has_type_id = false)]
-    //[Compact]
-    //public class Bar {
-    //    [CCode (cname = "bar_open")]
-    //    public static Bar? open (string filename);
+    //[SimpleType]
+    //[CCode (cname = "Image")]
+    //public struct ImageT {
+    //    void *data;             // Image raw data
+    //    int width;              // Image base width
+    //    int height;             // Image base height
+    //    int mipmaps;            // Mipmap levels, 1 by default
+    //    int format;             // Data format (PixelFormat type)
     //}
 
-    // Probable class here...
-    [Compact]
+    [SimpleType]
     [CCode (cname = "struct Image", free_function = "UnloadImage", has_type_id = false)]
-    public class Image {
+    public struct Image {
+
+        void* data;                 // Image raw data
+        int width;                  // Image base width
+        int height;                 // Image base height
+        int mipmaps;                // Mipmap levels, 1 by default
+        int format;                 // Data format (PixelFormat type)
+
+        // Image loading functions
+        // NOTE: These functions do not require GPU access
+        /**
+         * Load image from file into CPU memory (RAM)
+         */
         [CCode (cname = "LoadImage")]
         public Image.from_file(string file_name) { }
+        /**
+         * Load image from Color array data (RGBA - 32bit)
+         */
+        [CCode (cname = "LoadImageEx")]
+        public Image.from_color_data(Color[] pixels, int width, int height);
+        /**
+         * Load image from raw data with parameters
+         */
+        [CCode (cname = "LoadImagePro")]
+        public Image.from_data(uint8[] data, int width, int height, int format);
+        /**
+         * Load image from RAW file data
+         */
         [CCode (cname = "LoadImageRaw")]
         public Image.from_file_raw(string file_name, int width, int height, int format, int header_size) { }
 
+        // Image generation functions
+        /**
+         * Generate image: plain color
+         */
+        [CCode (cname = "GenImageColor")]
+        public Image.gen_color(int width, int height, Color color);
+        /**
+         * Generate image: vertical gradient
+         */
+        [CCode (cname = "GenImageGradientV")]
+        public Image.gen_gradient_v(int width, int height, Color top, Color bottom);
+        /**
+         * Generate image: horizontal gradient
+         */
+        [CCode (cname = "GenImageGradientH")]
+        public Image.gen_gradient_h(int width, int height, Color left, Color right);
+        /**
+         * Generate image: radial gradient
+         */
+        [CCode (cname = "GenImageGradientRadial")]
+        public Image.gen_gradient_radial(int width, int height, float density, Color inner, Color outer);
+        /**
+         * Generate image: checked
+         */
+        [CCode (cname = "GenImageChecked")]
+        public Image.gen_checked(int width, int height, int checks_x, int checks_y, Color col1, Color col2);
+        /**
+         * Generate image: white noise
+         */
+        [CCode (cname = "GenImageWhiteNoise")]
+        public Image.gen_white_noise(int width, int height, float factor);
+        /**
+         * Generate image: perlin noise
+         */
+        [CCode (cname = "GenImagePerlinNoise")]
+        public Image.gen_perlin_noise(int width, int height, int offset_x, int offset_y, float scale);
+        /**
+         * Generate image: cellular algorithm. Bigger tileSize means bigger cells
+         */
+        [CCode (cname = "GenImageCellular")]
+        public Image.gen_cellular(int width, int height, int tile_size);
+
+		// Image output functions
+		/**
+		 * Export image data to file
+		 */
         [CCode (cname = "ExportImage")]
         public void export(string file_name);
+        /**
+         * Export image as code file defining an array of bytes
+         */
+        [CCode (cname = "ExportImageAsCode")]
+        public void export_as_code(string file_name);
+        /**
+         * Get pixel data from image as a Color struct array
+         */
+        [CCode (cname = "GetImageData")]
+        public Color[] get_data();
+        /**
+         * Get pixel data from image as Vector4 array (float normalized)
+         */
+        [CCode (cname = "GetImageDataNormalized")]
+        public Vector4[] get_data_normalized();
 
+        // Image manipulation functions
+        /**
+         * Create an image duplicate (useful for transformations)
+         */
+        [CCode (cname = "ImageCopy")]
+        public Image copy();
+        /**
+         * Create an image from another image piece
+         */
+        [CCode (cname = "ImageFromImage")]
+        public Image splice(Rectangle rec);
+
+        /**
+         * Resize image (Bicubic scaling algorithm)
+         */
+        [CCode (cname="ImageResize")]
+        public static void resize(ref Image image, int new_width, int new_height);
     }
+
+		[CCode (cname="ImageResize")]
+        public void image_resize(out Image image, int new_width, int new_height);
+
+        [CCode (cname = "ImageFlipVertical")]
+        public void image_flip_vertical(out Image image);
 
     // Image loading functions
     // NOTE: This functions do not require GPU access
-    // Image LoadImage(const char *fileName);                                                             // Load image from file into CPU memory (RAM)
-    // Image LoadImageEx(Color *pixels, int width, int height);                                           // Load image from Color array data (RGBA - 32bit)
-    // Image LoadImagePro(void *data, int width, int height, int format);                                 // Load image from raw data with parameters
-    // Image LoadImageRaw(const char *fileName, int width, int height, int format, int headerSize);       // Load image from RAW file data
-    // void UnloadImage(Image image);                                                                     // Unload image from CPU memory (RAM)
-    // void ExportImage(Image image, const char *fileName);                                               // Export image data to file
-    // void ExportImageAsCode(Image image, const char *fileName);                                         // Export image as code file defining an array of bytes
-    // Color *GetImageData(Image image);                                                                  // Get pixel data from image as a Color struct array
-    // Vector4 *GetImageDataNormalized(Image image);                                                      // Get pixel data from image as Vector4 array (float normalized)
+    // -- Image LoadImage(const char *fileName);                                                             // Load image from file into CPU memory (RAM)
+    // -- Image LoadImageEx(Color *pixels, int width, int height);                                           // Load image from Color array data (RGBA - 32bit)
+    // -- Image LoadImagePro(void *data, int width, int height, int format);                                 // Load image from raw data with parameters
+    // -- Image LoadImageRaw(const char *fileName, int width, int height, int format, int headerSize);       // Load image from RAW file data
+    // -- void UnloadImage(Image image);                                                                     // Unload image from CPU memory (RAM)
+    // -- void ExportImage(Image image, const char *fileName);                                               // Export image data to file
+    // -- void ExportImageAsCode(Image image, const char *fileName);                                         // Export image as code file defining an array of bytes
+    // -- Color *GetImageData(Image image);                                                                  // Get pixel data from image as a Color struct array
+    // -- Vector4 *GetImageDataNormalized(Image image);                                                      // Get pixel data from image as Vector4 array (float normalized)
 
     // Image generation functions
-    // Image GenImageColor(int width, int height, Color color);                                           // Generate image: plain color
-    // Image GenImageGradientV(int width, int height, Color top, Color bottom);                           // Generate image: vertical gradient
-    // Image GenImageGradientH(int width, int height, Color left, Color right);                           // Generate image: horizontal gradient
-    // Image GenImageGradientRadial(int width, int height, float density, Color inner, Color outer);      // Generate image: radial gradient
-    // Image GenImageChecked(int width, int height, int checksX, int checksY, Color col1, Color col2);    // Generate image: checked
-    // Image GenImageWhiteNoise(int width, int height, float factor);                                     // Generate image: white noise
-    // Image GenImagePerlinNoise(int width, int height, int offsetX, int offsetY, float scale);           // Generate image: perlin noise
-    // Image GenImageCellular(int width, int height, int tileSize);                                       // Generate image: cellular algorithm. Bigger tileSize means bigger cells
+    // -- Image GenImageColor(int width, int height, Color color);                                           // Generate image: plain color
+    // -- Image GenImageGradientV(int width, int height, Color top, Color bottom);                           // Generate image: vertical gradient
+    // -- Image GenImageGradientH(int width, int height, Color left, Color right);                           // Generate image: horizontal gradient
+    // -- Image GenImageGradientRadial(int width, int height, float density, Color inner, Color outer);      // Generate image: radial gradient
+    // -- Image GenImageChecked(int width, int height, int checksX, int checksY, Color col1, Color col2);    // Generate image: checked
+    // -- Image GenImageWhiteNoise(int width, int height, float factor);                                     // Generate image: white noise
+    // -- Image GenImagePerlinNoise(int width, int height, int offsetX, int offsetY, float scale);           // Generate image: perlin noise
+    // -- Image GenImageCellular(int width, int height, int tileSize);                                       // Generate image: cellular algorithm. Bigger tileSize means bigger cells
 
     // Image manipulation functions
-    // Image ImageCopy(Image image);                                                                      // Create an image duplicate (useful for transformations)
-    // Image ImageFromImage(Image image, Rectangle rec);                                                  // Create an image from another image piece
+    // -- Image ImageCopy(Image image);                                                                      // Create an image duplicate (useful for transformations)
+    // -- Image ImageFromImage(Image image, Rectangle rec);                                                  // Create an image from another image piece
     // Image ImageText(const char *text, int fontSize, Color color);                                      // Create an image from text (default font)
     // Image ImageTextEx(Font font, const char *text, float fontSize, float spacing, Color tint);         // Create an image from text (custom sprite font)
     // void ImageToPOT(Image *image, Color fillColor);                                                    // Convert image to POT (power-of-two)
@@ -1474,7 +1576,7 @@ namespace Raylib {
     // NOTE: These functions require GPU access
     // Texture2D LoadTexture(const char *fileName);                                                       // Load texture from file into GPU memory (VRAM)
     [CCode (cname = "LoadTextureFromImage")]
-    public Texture2D load_texture_from_image(ImageT image);                                                       // Load texture from image data
+    public Texture2D load_texture_from_image(Image image);                                                       // Load texture from image data
     // TextureCubemap LoadTextureCubemap(Image image, int layoutType);                                    // Load cubemap from image, multiple image cubemap layouts supported
     // RenderTexture2D LoadRenderTexture(int width, int height);                                          // Load texture for rendering (framebuffer)
     // void UnloadTexture(Texture2D texture);                                                             // Unload texture from GPU memory (VRAM)
@@ -1489,7 +1591,8 @@ namespace Raylib {
     // void SetTextureWrap(Texture2D texture, int wrapMode);                                              // Set texture wrapping mode
 
     // Texture drawing functions
-    // void DrawTexture(Texture2D texture, int posX, int posY, Color tint);                               // Draw a Texture2D
+    [CCode (cname = "DrawTexture")]
+    public void draw_texture(Texture2D texture, int posX, int posY, Color tint);                               // Draw a Texture2D
     // void DrawTextureV(Texture2D texture, Vector2 position, Color tint);                                // Draw a Texture2D with position defined as Vector2
     // void DrawTextureEx(Texture2D texture, Vector2 position, float rotation, float scale, Color tint);  // Draw a Texture2D with extended parameters
     // void DrawTextureRec(Texture2D texture, Rectangle sourceRec, Vector2 position, Color tint);         // Draw a part of a texture defined by a rectangle
