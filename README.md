@@ -1,6 +1,16 @@
 raylib API for Vala
 ===================
 
+**UPDATE 19/07/22** 
+
+Since this repo is now linked from the official [RayLib Bindings](https://github.com/raysan5/raylib/blob/master/BINDINGS.md) 
+page it makes sense for me to think about relocating it to GitHub in case my home server is down for any 
+extended period. No promises but I might also have a look at what has changed between RayLib v3.0 and RayLib 
+v4.0. I haven't used Vala for a while for more of a "life just got in the way" thing than anything so I will 
+have to get my head back into it. I also don't think I ever produced a library for the binding which I probably should.
+
+**Original README**
+
 TL;DR: This is a WIP Vala binding for raylib. As of the time of writing this README the version I am writing
 against is 3.0.0 release 4. Right now, I've not worked out how to incorporate that version info into
 the bindings.
